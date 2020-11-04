@@ -16,14 +16,16 @@ function getRandomIntInclusive(min, max) {
 }
 
 function popUpRandomMole() {
-    let moles =document.querySelectorAll(".wgs__mole-head");
-    let i = getRandomIntInclusive(0,7);
+    let moles = document.querySelectorAll(".wgs__mole-head:not(.wgs__mole-head--whacked)");
+    let i = getRandomIntInclusive(0, moles.length - 1);
+    console.log(moles)
     let mole = moles[i];
     mole.classList.remove("wgs__mole-head--hidden");
+    console.log(mole)
 
     setTimeout(() => {
         hideMole(mole)
-    }, 1000);
+    }, 3000);
 }
 
 function hideMole(mole) {
@@ -34,6 +36,15 @@ function hideMole(mole) {
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
+    let moles = document.querySelectorAll(".wgs__mole-head")
+    moles.forEach(mole => {
+        mole.addEventListener("click", (event) => {
+            mole.classList.add("wgs__mole-head--hidden", "wgs__mole-head--whacked");
+        })
+    })
+
+
+
     setTimeout(() => {
         popUpRandomMole();
     }, 0)
