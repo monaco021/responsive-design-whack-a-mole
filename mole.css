@@ -3,6 +3,8 @@
     position: relative;
     height: 482px;
     width: 640px;
+    display: inline-block;
+    overflow: hidden;
 }
 
 .wgs__mole-head{
@@ -17,4 +19,8 @@
     height: 220px;
     width: 640px;
     bottom: 0;
+}
+
+.wgs__mole-head--hidden {
+    margin-top: 482px;
 }
