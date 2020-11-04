@@ -18,10 +18,13 @@ function getRandomIntInclusive(min, max) {
 function popUpRandomMole() {
     let moles = document.querySelectorAll(".wgs__mole-head:not(.wgs__mole-head--whacked)");
     let i = getRandomIntInclusive(0, moles.length - 1);
-    console.log(moles)
+    if (moles.length === 0) {
+        console.log("You Won!! :)");
+        return;
+    }
     let mole = moles[i];
     mole.classList.remove("wgs__mole-head--hidden");
-    console.log(mole)
+
 
     setTimeout(() => {
         hideMole(mole)
